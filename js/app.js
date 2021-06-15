@@ -77,49 +77,49 @@ function Store(storeName, minCustomers, maxCustomers, avgCookies) {
     this.calcHourlyCustomers();
     this.calcCookiesEachHour();
     this.calcTotalCookies();
-//     // create table row
-//     var tableRow = document.createElement('tr');
-//     // create first table cell (store name)
-//     var storeCell = document.createElement('td');
-//     storeCell.textContent = this.storeName;
-//     tableRow.appendChild(storeCell);
-//     // loop over array and create other td's
-//     for (var i = 0; i < hours.length; i++) {
-//       var tableCell = document.createElement('td');
-//       tableCell.textContent = this.cookiesEachHour[i];
-//       tableRow.appendChild(tableCell);
-//     }
-//     // create total column
-//     var totalCell = document.createElement('td');
-//     totalCell.textContent = this.totalCookies;
-//     tableRow.appendChild(totalCell);
-//     // append
-//     document.getElementById('table').appendChild(tableRow);
-//     stores.push(this);
-//   };
+    // create table row
+    var tableRow = document.createElement('tr');
+    // create first table cell (store name)
+    var storeCell = document.createElement('td');
+    storeCell.textContent = this.storeName;
+    tableRow.appendChild(storeCell);
+    // loop over array and create other td's
+    for (var i = 0; i < hours.length; i++) {
+      var tableCell = document.createElement('td');
+      tableCell.textContent = this.cookiesEachHour[i];
+      tableRow.appendChild(tableCell);
+    }
+    // create total column
+    var totalCell = document.createElement('td');
+    totalCell.textContent = this.totalCookies;
+    tableRow.appendChild(totalCell);
+    // append
+    document.getElementById('table').appendChild(tableRow);
+    stores.push(this);
+  };
   
-//   var footRow = document.createElement('tr');
+  var footRow = document.createElement('tr');
   
-//   var footName = document.createElement('th');
-//   footName.textContent = 'Total';
-//   footRow.appendChild(footName);
+  var footName = document.createElement('th');
+  footName.textContent = 'Total';
+  footRow.appendChild(footName);
   
-//   var collumnTotal = 0;
+  var collumnTotal = 0;
   
-//   function total() {
-//     for (var i = 0; i < hours.length; i++) {
-//       for (var j = 0; j < stores.length; j++) {
-//         collumnTotal = collumnTotal + stores[j].cookiesEachHour[i];
-//       }
+  function total() {
+    for (var i = 0; i < hours.length; i++) {
+      for (var j = 0; j < stores.length; j++) {
+        collumnTotal = collumnTotal + stores[j].cookiesEachHour[i];
+      }
   
-//       var footCell = document.createElement('th');
+      var footCell = document.createElement('th');
   
-//       footCell.textContent = collumnTotal;
-//       footCell.className = 'cellIndex';
-//       footRow.appendChild(footCell);
-//       collumnTotal = 0;
-//     }
-//   }
+      footCell.textContent = collumnTotal;
+      footCell.className = 'cellIndex';
+      footRow.appendChild(footCell);
+      collumnTotal = 0;
+    }
+  }
   
   function newTotal() {
     for (var i = 0; i < hours.length; i++) {
