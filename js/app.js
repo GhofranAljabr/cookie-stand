@@ -38,13 +38,12 @@
 // render('Dubai',11,38,3.7)
 // render('Paris',20,38,2.3)
 // render('Lima',2,16,4.6)
-
-
+///////////////////////////////
 const hours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
-// let parentElement = document.getElementById('father');
+let parentElement = document.getElementById('father');
 
-var stores = [];
+
 
 function Store(storeName, minCustomers, maxCustomers, avgCookies) {
     this.storeName = storeName;
@@ -61,7 +60,7 @@ function Store(storeName, minCustomers, maxCustomers, avgCookies) {
       this.customersEachHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers)) + this.minCustomers);
     }
   };
-
+  // Hourly cookies calculation
   Store.prototype.calcCookiesEachHour = function() {
     for (var i = 0; i < hours.length; i++) {
       this.cookiesEachHour.push(this.customersEachHour[i] * Math.ceil(this.avgCookies));
@@ -142,12 +141,12 @@ function Store(storeName, minCustomers, maxCustomers, avgCookies) {
   
   function handleForm(e) {
     e.preventDefault();
-    var store = e.target.store.value;
-    var min = parseInt(e.target.min.value);
-    var max = parseInt(e.target.max.value);
-    var cookies = parseFloat(e.target.cookies.value);
+    let store = e.target.store.value;
+    let min = parseInt(e.target.min.value);
+    let max = parseInt(e.target.max.value);
+    let cookies = parseFloat(e.target.cookies.value);
   
-    var addNewLocation = new Store(store, min, max, cookies);
+     addNewLocation = new Store(store, min, max, cookies);
     addNewLocation.render();
   
     e.target.store.value = '';
@@ -157,20 +156,23 @@ function Store(storeName, minCustomers, maxCustomers, avgCookies) {
     newTotal();
   }
   
-  document.getElementById('new-location-form').addEventListener('submit', handleForm);
+  
+//   document.getElementById('new-location-form').addEventListener('submit', handleForm);
   
   
-  var pike = new Store('1st and Pike', 23, 65, 6.3);
-  var seaTac = new Store('SeaTac Airport', 3, 24, 1.2);
-  var seattle = new Store('Seattle Center', 11, 38, 3.7);
-  var capitol = new Store('Capitol Hill', 20, 38, 2.3);
-  var alki = new Store('Alki', 2, 16, 4.6);
+  let Seattle = new Store('Seattle', 23, 65, 6.3);
+  let Tokyo = new Store('Tokyo', 3, 24, 1.2);
+  let Dubai = new Store('Dubai', 11, 38, 3.7);
+  let Paris = new Store('Paris', 20, 38, 2.3);
+  let Lima = new Store('Lima', 2, 16, 4.6);
   
-  pike.render();
-  seaTac.render();
-  seattle.render();
-  capitol.render();
-  alki.render();
+  
+
+  Seattle.render();
+  Tokyo.render();
+  Dubai.render();
+  Paris.render();
+  Lima.render();
   
   
   
