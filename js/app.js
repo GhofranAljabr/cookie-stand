@@ -51,7 +51,10 @@ function SalmonCookie(storeName, minCust, maxCust, avgCookies) {
     this.avgCookies = avgCookies;
     this.cookiesPerHour = [];
     this.total = 0;
-    this.getCustomer= function() {
+    allCookies.push(this)
+}
+let allCookies = [];
+    SalmonCookie.prototype.getCustomer= function() {
         for(let i = 0; i < hours.length; i++) {
           let cookies = Math.ceil(getRandomCustomer(this.minCust, this.maxCust) * this.avgCookies);
           this.cookiesPerHour.push(cookies);
@@ -61,7 +64,7 @@ function SalmonCookie(storeName, minCust, maxCust, avgCookies) {
     
         
       };
-      this.render= function() {
+      SalmonCookie.prototype.render= function() {
         let tr = document.createElement('tr');
         salesTable.appendChild(tr);
 
@@ -82,7 +85,7 @@ function SalmonCookie(storeName, minCust, maxCust, avgCookies) {
           total.textContent = this.total;
       }
 
-}
+
 let tr= document.createElement('tr');
 let td1 = document.createElement('td');
         tr.appendChild(td1);
@@ -127,9 +130,9 @@ let Dubai = new SalmonCookie('Dubai', 11, 38, 3.7);
  
 //  makeTableHeader();
 
-  function makeTableHeader () {
-    let tr = document.createElement('tr');
-      salesTable.appendChild('tr');
+//   function makeTableHeader () {
+//     let tr = document.createElement('tr');
+//       salesTable.appendChild('tr');
 
     //    let th1 =document.createElement('th');
     //    tr.appendChild(th1);
@@ -145,31 +148,41 @@ let Dubai = new SalmonCookie('Dubai', 11, 38, 3.7);
     //    tr.appendChild(th);
     //   th3.textContent = 'the day totals';
     
-      }
+    
 
-    // //   function makeTableFooter(){
-    //     function makeTableFooter () {
-    //         let tr = document.createElement('tr');
-    //           salesTable.appendChild('tr');
+    //   function makeTableFooter(){
+        function makeTableFooter () {
+
+            let tr = document.createElement('tr');
+              salesTable.appendChild(tr);
         
-    //            let th1 =document.createElement('th');
-    //            tr.appendChild(th1);
-    //            th.textContent = 'totals';
-        
-    //            for (let i = 0; i < hours.length; i++) {
-    //                for (let j = 0; j < SalmonCookie.length; j++) {
-    //                   let hourlyTotal =+SalmonCookieallCookies[j].cookiesPerHour                     
-    //                }
-    //                let th2 = document.createElement('th');
-    //                tr.appendChild(th2);
-    //                th2.textContent= hours[i];
-    //            }
+               let th1 =document.createElement('th');
+               tr.appendChild(th1);
+               th1.textContent = 'totals';
+               let totalOfTotal = 0
+               for (let i = 0; i < hours.length; i++) {
+                   let totalPH = 0
+                   for (let j = 0; j < allCookies.length; j++) {
+                      totalPH +=allCookies[j].cookiesPerHour[i]   
+                                       
+                   }
+                totalOfTotal+= totalPH
+                    
+                   let th2 = document.createElement('th');
+                   tr.appendChild(th2);
+                   th2.textContent= totalPH;
+
+                }
+                let th3 =document.createElement('th');
+                tr.appendChild(th3);
+               th3.textContent = totalOfTotal;
+
+
+               }
                
-            //    let th3 =document.createElement('th');
-            //    tr.appendChild(th);
-            //   th3.textContent = 'the day totals';
+              makeTableFooter();
             
-            //   }
+           
     
      
 
