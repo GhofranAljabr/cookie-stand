@@ -102,3 +102,9 @@ html, body {
   footer {
     text-align: center;
   }
+  table{
+    border: 1px pink solid;
+  }
+  td{
+    border: 1px green solid;
+  }
