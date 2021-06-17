@@ -1,0 +1,19 @@
+
+
+
+
+body {
+  background-color: rgb(235, 174, 192);
+}
+
+
+  table{
+    border: 2px rgb(85, 19, 30) solid;
+    border-collapse: collapse;
+
+  }
+  td,tr,th{
+    border: 2px rgb(58, 17, 24) solid;
+  }
+
+ 

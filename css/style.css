@@ -100,5 +100,15 @@ html, body {
     width: 66%;
   }
   footer {
+    background-color: lightcoral;
     text-align: center;
   }
+  table{
+    border: 1px pink solid;
+  }
+  td{
+    border: 1px rgb(35, 90, 35) solid;
+  }
+section img{
+  column-span: all;
+}
