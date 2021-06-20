@@ -1,9 +1,12 @@
-
-  table{
-    border: 2px rgb(240, 131, 149) solid;
-    border-collapse: collapse;
-
-  }
-  td,tr,th{
-    border: 2px rgb(231, 96, 118) solid;
-  }
+table {
+  border: 2px rgb(240, 131, 149) solid;
+  border-collapse: collapse;
+}
+td,
+tr,
+th {
+  border: 2px rgb(231, 96, 118) solid;
+}
+body {
+  background-color: rgb(117, 114, 114);
+}

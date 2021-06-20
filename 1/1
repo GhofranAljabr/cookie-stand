@@ -36,3 +36,85 @@
 // render('Dubai',11,38,3.7)
 // render('Paris',20,38,2.3)
 // render('Lima',2,16,4.6)
+
+
+
+/////////////////////////////////
+///////////////////////////////
+///////////////////////////
+////////////////////////////////
+/////////////////////////////////
+function SalmonCookie(storeName, minCust, maxCust, avgCookies) {
+    this.storeName = storeName;
+    this.minCust = minCust;
+    this.maxCust = maxCust;
+    this.avgCookies = avgCookies;
+    this.cookiesPerHour = [];
+    this.total = 0;
+    this.getCustomer= function() {
+        for(let i = 0; i < hours.length; i++) {
+          let cookies = Math.ceil(getRandomCustomer(this.minCust, this.maxCust) * this.avgCookies);
+          this.cookiesPerHour.push(cookies);
+          this.total += cookies;
+         
+        }
+    
+        
+      };
+      this.render= function() {
+        let h2 = document.createElement('h2');
+        parentElement.appendChild(h2);
+        h2.textContent = this.storeName;
+    
+        let ul = document.createElement('ul');
+        parentElement.appendChild(ul);
+    
+        for(let i = 0; i < hours.length; i++) {
+          let li = document.createElement('li');
+          ul.appendChild(li);
+          li.textContent = `${hours[i]}: ${this.cookiesPerHour[i]} cookies`;
+        }
+    
+        let total = document.createElement('li');
+          ul.appendChild(total);
+          total.textContent = `Total: ${this.total} cookies`;
+      }
+
+}
+
+
+
+
+
+
+let Seattle = new SalmonCookie('Seattle', 23, 65, 6.3);
+ let Tokyo = new SalmonCookie('Tokyo', 3, 24, 1.2);
+let Dubai = new SalmonCookie('Dubai', 11, 38, 3.7);
+ let Paris = new SalmonCookie('Paris', 20, 38, 2.3);
+ let Lima = new SalmonCookie('Lima', 2, 16, 4.6);
+ 
+ Seattle.getCustomer();
+ Tokyo.getCustomer();
+ Dubai.getCustomer();
+ Paris.getCustomer();
+ Lima.getCustomer();
+
+ Seattle.render();
+   Tokyo.render();
+  Dubai.render();
+  Paris.render();
+   Lima.render();
+
+
+  
+
+  
+//   tokyo.render();
+  
+
+  
+  function getRandomCustomer(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  }
+
+    
