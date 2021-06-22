@@ -41,9 +41,13 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 let parentElement =document.getElementById('father');
  let father = document.getElementById('father');
  let salesTable = document.getElementById('salesTable');
+let fform = document.getElementById("new-location-form");
 
+let total=0
 
-
+function myFunction() {
+  document.getElementById("myForm").submit();
+}
 function SalmonCookie(storeName, minCust, maxCust, avgCookies) {
     this.storeName = storeName;
     this.minCust = minCust;
@@ -72,15 +76,17 @@ let allCookies = [];
         
         let th = document.createElement('th');
         tr.appendChild(th);
+        
         th.textContent = this.storeName;
     
         for(let i = 0; i < hours.length; i++) {
           let td = document.createElement('td');
           tr.appendChild(td);
+
           td.textContent = this.cookiesPerHour[i] ;
         }
     
-        let total = document.createElement('th');
+         total = document.createElement('th');
           tr.appendChild(total);
           total.textContent = this.total;
       }
@@ -88,23 +94,28 @@ let allCookies = [];
 
 let tr= document.createElement('tr');
 let td1 = document.createElement('td');
+
         tr.appendChild(td1);
 
 salesTable.appendChild(tr)
 
-td1.textContent = 'Location';
 
-for(let i = 0; i < hours.length; i++) {
-let td1 = document.createElement('td');
-        tr.appendChild(td1);
+function getTime() {
+  td1.textContent = 'Location';
+  
+  for(let i = 0; i < hours.length; i++) {
+  let td1 = document.createElement('td');
+          tr.appendChild(td1);
+  
+              td1.textContent = hours [i];
+          }
+           td1 = document.createElement('td');
+           tr.appendChild(td1);
+  
+          td1.textContent = 'total';
+}
 
-            td1.textContent = hours [i];
-        }
-         td1 = document.createElement('td');
-         tr.appendChild(td1);
-
-        td1.textContent = 'total';
-
+getTime()
 
 
 
@@ -147,8 +158,41 @@ let Dubai = new SalmonCookie('Dubai', 11, 38, 3.7);
     //    let th3 =document.createElement('th');
     //    tr.appendChild(th);
     //   th3.textContent = 'the day totals';
+
+    let storeName =document.getElementById('storeInput');
+    let minn =document.getElementById('minCust');
+    let maxx =document.getElementById('maxCust');
+    let cookieInput =document.getElementById('cookieInput');
+
+    function submitForm(e) {
+      e.preventDefault();
+
+      salesTable.innerHTML=''
+      getTime()
+      Seattle.getCustomer();
+      Tokyo.getCustomer();
+      Dubai.getCustomer();
+      Paris.getCustomer();
+      Lima.getCustomer();
+      
+      Seattle.render();
+      Tokyo.render();
+      Dubai.render();
+      Paris.render();
+      Lima.render();
+
+      let amman = new SalmonCookie(storeName.value, minn.value, maxx.value, cookieInput.value);
+
+      amman.getCustomer();
+ 
+      amman.render();
+ 
+      makeTableFooter ()
+      console.log(storeName.value);
+      
+    }
     
-    
+    fform.addEventListener('submit', submitForm);
 
     //   function makeTableFooter(){
         function makeTableFooter () {
