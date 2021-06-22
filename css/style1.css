@@ -1,19 +1,14 @@
 
-
-
-
+table {
+  border: 2px rgb(240, 131, 149) solid;
+  border-collapse: collapse;
+}
+td,
+tr,
+th {
+  border: 2px rgb(231, 96, 118) solid;
+}
 body {
-  background-color: rgb(235, 174, 192);
+  background-color: rgb(117, 114, 114);
 }
 
-
-  table{
-    border: 2px rgb(85, 19, 30) solid;
-    border-collapse: collapse;
-
-  }
-  td,tr,th{
-    border: 2px rgb(58, 17, 24) solid;
-  }
-
- 
