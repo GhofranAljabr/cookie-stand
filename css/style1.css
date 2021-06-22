@@ -1,7 +1,7 @@
-
 table {
   border: 2px rgb(240, 131, 149) solid;
   border-collapse: collapse;
+  margin-left: 20%;
 }
 td,
 tr,
@@ -11,4 +11,3 @@ th {
 body {
   background-color: rgb(117, 114, 114);
 }
-
